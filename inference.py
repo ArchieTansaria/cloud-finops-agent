@@ -5,13 +5,11 @@ from env import CloudFinOpsEnv
 from models import Action, ActionType, Observation
 
 def main():
-    api_key = os.getenv("OPENAI_API_KEY", "dummy-key")
     base_url = os.getenv("API_BASE_URL", "https://api.openai.com/v1")
     model = os.getenv("MODEL_NAME", "gpt-4o")
-    hf_token = os.getenv("HF_TOKEN")
-    local_image = os.getenv("LOCAL_IMAGE_NAME")
+    api_key = os.getenv("HF_TOKEN", os.getenv("OPENAI_API_KEY", "dummy-key"))
     
-    # Instantiate the client
+    # Instantiate the client using the required variables
     client = OpenAI(api_key=api_key, base_url=base_url)
     
     tasks = ["zombie_slayer_easy", "right_size_medium", "sla_defender_hard"]
@@ -51,7 +49,8 @@ def main():
                     act = Action(type=ActionType.WAIT)
                     
             except Exception as e:
-                print(f"[ERROR] API Call failed: {e}")
+                import sys
+                print(f"[ERROR] API Call failed: {str(e)}", file=sys.stderr)
                 act = Action(type=ActionType.WAIT)
                 
             print(f"[STEP] action={act.model_dump_json()}")
