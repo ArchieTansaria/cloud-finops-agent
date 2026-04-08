@@ -1,6 +1,5 @@
 ---
 title: Cloud FinOps OpenEnv
-emoji: 🌩️
 colorFrom: blue
 colorTo: green
 sdk: docker
@@ -9,15 +8,15 @@ tags:
   - openenv
 ---
 
-# 🌩️ Cloud FinOps & Cost Optimization Agent (OpenEnv)
+# Cloud FinOps & Cost Optimization Agent (OpenEnv)
 
-## 📌 Environment Description and Motivation
+## Environment Description and Motivation
 The **Cloud FinOps Agent** is an OpenEnv native simulation of a critical real-world enterprise task: optimizing cloud computing infrastructure efficiently.
 Companies waste millions of dollars annually on overprovisioned or completely idle cloud instances. This environment challenges reinforcement learning agents and LLMs to identify "zombie" infrastructure and dynamically "right-size" instances, strictly balancing cost savings against hard operational limits (such as max CPU constraints and High-Availability SLAs).
 
 This is NOT a toy environment. It perfectly mathematically maps to actual FinOps challenges faced by AWS/GCP engineers daily.
 
-## 📥 Setup and Usage Instructions
+## Setup and Usage Instructions
 
 1. **Install OpenEnv & Requirements**
    ```bash
@@ -38,12 +37,12 @@ This is NOT a toy environment. It perfectly mathematically maps to actual FinOps
    docker run -e OPENAI_API_KEY="dummy" finops_agent
    ```
 
-## 🧠 Action and Observation Space
+## Action and Observation Space
 
 - **Observation Space**: A list of active Cloud `Instance` objects (metadata: `id`, `type`, `cpu_utilization`, `is_mission_critical`, `cost_per_hour`).
 - **Action Space**: `terminate` (turn off the instance), `resize` (downgrade or upgrade the instance to another tier), or `wait` (end the optimization cycle).
 
-## 🚀 Tasks
+## Tasks
 We have defined 3 deterministic tasks escalating in complexity:
 
 1. **The Zombie Slayer (Easy):** 
@@ -58,8 +57,8 @@ We have defined 3 deterministic tasks escalating in complexity:
    - *Goal:* Optimize a complex web application stack containing "mission_critical" databases.
    - *Penalty:* Instant `0.0` score if the agent touches a `mission_critical` instance, requiring precision planning.
 
-## 📊 Baseline Scores
+## Baseline Scores
 Our provided `inference.py` achieves perfect scores (`1.0`) on all 3 tasks natively by correctly adhering to the grading thresholds and avoiding SLA breaches.
 
-## 🌐 Deploying to HuggingFace
+## Deploying to HuggingFace
 Because we've fully containerized this application and correctly defined `openenv.yaml`, deploying to Hugging Face Spaces requires simply uploading this repository and selecting "Docker" space type.
