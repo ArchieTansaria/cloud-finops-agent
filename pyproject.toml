@@ -1,0 +1,20 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "cloud-finops-agent"
+version = "0.1.0"
+description = "Cloud FinOps & Cost Optimization OpenEnv Agent"
+authors = [
+    { name = "Developer" }
+]
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "openenv",
+    "pydantic>=2.0.0",
+    "openai>=1.0.0",
+    "fastapi",
+    "uvicorn"
+]
