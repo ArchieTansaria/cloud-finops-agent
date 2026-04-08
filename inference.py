@@ -7,7 +7,7 @@ from models import Action, ActionType, Observation
 def main():
     base_url = os.getenv("API_BASE_URL", "https://api.openai.com/v1")
     model = os.getenv("MODEL_NAME", "gpt-4o")
-    api_key = os.getenv("HF_TOKEN", os.getenv("OPENAI_API_KEY", "dummy-key"))
+    api_key = os.environ["HF_TOKEN"]
     
     # Instantiate the client using the required variables
     client = OpenAI(api_key=api_key, base_url=base_url)
