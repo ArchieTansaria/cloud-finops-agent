@@ -6,7 +6,7 @@ The environment was built for the **Meta & Scaler Hackathon**.
 
 ---
 
-## 🏗️ Project Overview
+##  Project Overview
 
 This environment evaluates reinforcement learning (RL) agents or LLMs as **Cloud FinOps Engineers**. Given a fleet of cloud compute instances, the agent must optimize costs by terminating zombie/idle resources or dynamically resizing instances based on CPU utilization heuristics.
 
@@ -16,7 +16,7 @@ However, the agent must strictly respect **hard operational limits**:
 
 Most core functionalities are already working and integrated with the OpenEnv specifications perfectly. 
 
-## 📂 File Structure and Context
+##  File Structure and Context
 
 Here is a breakdown of the active files and modules in this repository:
 
@@ -43,7 +43,7 @@ Standard infrastructure elements. The Dockerfile ensures rapid containerization,
 
 ---
 
-## 🚀 How it Works (The Lifecycle)
+##  How it Works (The Lifecycle)
 
 1. **Reset**: OpenEnv initializes `CloudFinOpsEnv` passing a `task_id`.
 2. **Observation emission**: The environment provides a Pydantic `Observation` containing the current infra list, total cost, and any alerts.
@@ -53,7 +53,7 @@ Standard infrastructure elements. The Dockerfile ensures rapid containerization,
 
 ---
 
-## 📝 TODOs & Future Improvements
+##  TODOs & Future Improvements
 
 As discussed earlier, most core things are functional, but here are the immediate hand-over tasks for the next developer:
 
