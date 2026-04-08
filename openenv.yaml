@@ -1,0 +1,21 @@
+id: finops-agent-v1
+name: Cloud FinOps and Cost Optimization Agent
+description: A real-world environment where an agent optimizes cloud infrastructure costs by terminating idle instances and right-sizing underutilized instances without breaching operational SLAs.
+tasks:
+  - id: zombie_slayer_easy
+    name: The Zombie Slayer
+    description: Terminate all completely idle database and compute instances (0% utilization) to reduce wasted spend.
+  - id: right_size_medium
+    name: The Right Sizer
+    description: Downgrade over-provisioned instances to cheaper tiers without pushing any instance beyond 85% simulated CPU load.
+  - id: sla_defender_hard
+    name: The SLA Defender
+    description: Right-size instances to maximize savings while strictly ensuring instances flagged as `mission_critical` are never modified or terminated.
+schema:
+  observation: models:Observation
+  action: models:Action
+  reward: models:Reward
+  state: models:State
+environment:
+  python:
+    module: env:CloudFinOpsEnv
